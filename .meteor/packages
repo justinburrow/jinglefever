@@ -19,3 +19,7 @@ insecure                # Allow all DB writes from clients (for prototyping)
 angular
 mquandalle:jade
 coffeescript
+fourseven:scss
+mquandalle:bower
+angularui:angular-ui-router
+twbs:bootstrap
