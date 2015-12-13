@@ -1,1 +1,7 @@
 h1 Jingles!
+
+div(data-ng-repeat="tag in tags")
+  button(ng-click="tagCheck(tag)") {{tag}}
+
+div(data-ng-repeat="track in allTracks | filter: taggedGenreTracks || taggedTagTracks")
+  a(href="#") {{ track.title}}
