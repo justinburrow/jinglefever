@@ -2,6 +2,8 @@ h1 Jingles!
 
 div(data-ng-repeat="tag in tags")
   button(ng-click="tagCheck(tag)") {{tag}}
+  
+div {{activeTags}}
 
-div(data-ng-repeat="track in allTracks | filter: taggedGenreTracks || taggedTagTracks")
-  a(href="#") {{ track.title}}
+div(data-ng-if="allTracks.length" data-ng-repeat="jingle in allTracks | filter:taggedGenreTracks")
+  a(href="track/{{jingle.id}}") {{jingle.title}}

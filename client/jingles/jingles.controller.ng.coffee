@@ -1,33 +1,24 @@
 'use strict'
 
 angular.module 'jinglefever'
-.controller 'JinglesCtrl', ($scope) ->
-  userId = Meteor.settings.public.scUserId
-  clientId = Meteor.settings.public.scClientId
+.controller 'JinglesCtrl', ($scope, jinglesFactory) ->
   $scope.activeTags = []
   $scope.tagMatch = ''
-  $scope.allTracks =''
   
-  #make soundcloud API call
-  HTTP.call 'GET', 'https://api.soundcloud.com/users/' + userId + '/tracks?client_id=' + clientId, (err, res) ->
-    if err
-      console.log('something went wrong!')
-    else
-      $scope.allTracks = JSON.parse(res.content)
-      tags = []
-      
-      #make array called tagList, push unique values for genre and tag_list
-      for track in $scope.allTracks
-        tagList = []
-        if tags.indexOf(track.genre) == -1
-          tags.push(track.genre)
-        if track.tag_list
-          tagList = track.tag_list.match(/"(?:\\"|\\\\|[^"])*"|\S+/g);
-        for tag in tagList
-            if tags.indexOf(tag) == -1
-              tag = tag.replace(/"/g, "")
-              tags.push(tag)
-              
+  jinglesFactory.getTracks (tracks) ->
+    $scope.allTracks =  tracks
+    tags =[]
+    #make array called tagList, push unique values for genre and tag_list
+    for track in $scope.allTracks
+      tagList = []
+      if tags.indexOf(track.genre) == -1
+        tags.push(track.genre)
+      if track.tag_list
+        tagList = track.tag_list.match(/"(?:\\"|\\\\|[^"])*"|\S+/g);
+      for tag in tagList
+          if tags.indexOf(tag) == -1
+            tag = tag.replace(/"/g, "")
+            tags.push(tag)
       $scope.tags = tags
 
   #activate and deactivate tags into activeTags array
@@ -39,6 +30,7 @@ angular.module 'jinglefever'
       $scope.activeTags.splice(activeTagLoc, 1)
   
   #filter allTracks by activeTags in both genre and tag_list properties
+  #TODO: should DRY up some of the .match and .replace functions
   $scope.taggedGenreTracks = (value, index) ->
     count = 0
     if value.tag_list
