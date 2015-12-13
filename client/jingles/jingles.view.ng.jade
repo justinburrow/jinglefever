@@ -6,4 +6,4 @@ div(data-ng-repeat="tag in tags")
 div {{activeTags}}
 
 div(data-ng-if="allTracks.length" data-ng-repeat="jingle in allTracks | filter:taggedGenreTracks")
-  a(href="track/{{jingle.id}}") {{jingle.title}}
+  a(ui-sref="track({id: {{jingle.id}} })" ui-sref-opts="{reload:true, notify:true}") {{jingle.title}}

@@ -1,3 +1,9 @@
 h1 Track!
+div(data-ng-init="jinglesFactory.getSingleTrack(track)")
+  h2 {{singleTrack.title}}
 
-h2
+  div(plangular="{{playURL}}" data-ng-if="playURL")
+    {{playURL}}
+    h3 {{track.title}}
+    p {{ currentTime | hhmmss }} | {{ duration | hhmmss }}
+    button(ng-click="playPause()") booopy

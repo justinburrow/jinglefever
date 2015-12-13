@@ -7,3 +7,4 @@ angular.module 'jinglefever'
     url: '/track/:id'
     templateUrl: 'client/track/track.view.html'
     controller: 'TrackCtrl'
+    cache: false
