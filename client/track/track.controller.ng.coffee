@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'jinglefever'
-.controller 'TrackCtrl', ($scope, $stateParams, $rootScope, $http) ->
+.controller 'trackCtrl', ($scope, $stateParams, $rootScope, $http) ->
     userId = Meteor.settings.public.scUserId
     clientId = Meteor.settings.public.scClientId
     trackId = $stateParams.id

@@ -6,4 +6,6 @@ div(data-ng-init="jinglesFactory.getSingleTrack(track)")
     {{playURL}}
     h3 {{track.title}}
     p {{ currentTime | hhmmss }} | {{ duration | hhmmss }}
-    button(ng-click="playPause()") booopy
+    div(progress ng-value="currentTime / duration || 0")
+      {{ currentTime / duration || 0 }}
+    button(ng-click="playPause()") play/pause

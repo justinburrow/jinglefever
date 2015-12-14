@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'jinglefever'
-.controller 'JinglesCtrl', ($scope, jinglesFactory, $stateParams) ->
+.controller 'jinglesCtrl', ($scope, jinglesFactory, $stateParams) ->
   $scope.activeTags = []
   $scope.tagMatch = ''
   

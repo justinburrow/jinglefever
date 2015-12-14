@@ -6,5 +6,5 @@ angular.module 'jinglefever'
   .state 'track',
     url: '/track/:id'
     templateUrl: 'client/track/track.view.html'
-    controller: 'TrackCtrl'
+    controller: 'trackCtrl'
     cache: false

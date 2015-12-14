@@ -2,8 +2,6 @@ h1 Jingles!
 
 div(data-ng-repeat="tag in tags")
   button(ng-click="tagCheck(tag)") {{tag}}
-  
-div {{activeTags}}
 
 div(data-ng-if="allTracks.length" data-ng-repeat="jingle in allTracks | filter:taggedGenreTracks")
   a(ui-sref="track({id: {{jingle.id}} })" ui-sref-opts="{reload:true, notify:true}") {{jingle.title}}

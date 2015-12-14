@@ -6,4 +6,4 @@ angular.module 'jinglefever'
   .state 'jingles',
     url: '/jingles'
     templateUrl: 'client/jingles/jingles.view.html'
-    controller: 'JinglesCtrl'
+    controller: 'jinglesCtrl'
