@@ -4,20 +4,13 @@
 </head>
 <body ng-app="jinglefever">
 <!--<navbar></navbar>-->
-  <div class="container-fluid">
-    <div ui-view=""></div>
-  </div>
-  <script type="text/javascript">
-  WebFontConfig = {
-    google: { families: [ 'Roboto+Condensed:400,300,700italic,700:latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>
+  <div ui-view=""></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Roboto+Condensed:400,300,700italic,700:latin']
+      }
+    });
+  </script>
 </body>

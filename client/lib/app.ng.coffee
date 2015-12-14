@@ -1,7 +1,8 @@
 angular.module 'jinglefever', [
   'angular-meteor',
   'ui.router',
-  'plangular'
+  'plangular',
+  'ngAnimate'
 ]
 .config((plangularConfigProvider) ->
   plangularConfigProvider.clientId = Meteor.settings.public.scClientId

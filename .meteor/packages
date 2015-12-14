@@ -19,9 +19,9 @@ insecure                # Allow all DB writes from clients (for prototyping)
 fourseven:scss
 mquandalle:bower
 angularui:angular-ui-router
-twbs:bootstrap
 civilframe:angular-jade
 ndxbxrme:ng-coffeescript
 angular
 http
 iamcurio:plangular
+angular:angular-animate
