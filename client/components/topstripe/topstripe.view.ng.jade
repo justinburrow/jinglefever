@@ -1,0 +1,7 @@
+.logo
+  a(href="/")
+    svg.logo
+      use(xlink:href="img/jingle_fever.svg#Layer_1")
+
+.filters
+  button(data-ng-repeat="tag in tags" ng-click="tagCheck(tag)") {{tag}}

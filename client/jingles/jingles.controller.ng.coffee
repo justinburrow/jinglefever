@@ -24,11 +24,11 @@ angular.module 'jinglefever'
 
   #activate and deactivate tags into activeTags array
   $scope.tagCheck = (tagValue) ->
-    if $scope.activeTags.indexOf(tagValue) == -1
-      $scope.activeTags.push(tagValue)
+    if $rootScope.activeTags.indexOf(tagValue) == -1
+      $rootScope.activeTags.push(tagValue)
     else
-      activeTagLoc = $scope.activeTags.indexOf(tagValue)
-      $scope.activeTags.splice(activeTagLoc, 1)
+      activeTagLoc = $rootScope.activeTags.indexOf(tagValue)
+      $rootScope.activeTags.splice(activeTagLoc, 1)
   
   #filter allTracks by activeTags in both genre and tag_list properties
   #TODO: should DRY up some of the .match and .replace functions
@@ -38,7 +38,7 @@ angular.module 'jinglefever'
       trackTags = value.tag_list.match(/"(?:\\"|\\\\|[^"])*"|\S+/g);
       for trackTag in trackTags
         trackTag = trackTag.replace(/"/g, "")
-        if $scope.activeTags.indexOf(trackTag) != -1
+        if $rootScope.activeTags.indexOf(trackTag) != -1
           count++
-    $scope.activeTags.indexOf(value.genre) != -1 || count != 0
+    $rootScope.activeTags.indexOf(value.genre) != -1 || count != 0
     
