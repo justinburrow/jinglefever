@@ -1,9 +1,10 @@
 'use strict'
 
 angular.module 'jinglefever'
-.controller 'jinglesCtrl', ($scope, jinglesFactory, $stateParams) ->
+.controller 'jinglesCtrl', ($scope, jinglesFactory, $stateParams, $state, $rootScope) ->
   $scope.activeTags = []
   $scope.tagMatch = ''
+  $rootScope.home = false
   
   jinglesFactory.getTracks (tracks) ->
     $scope.allTracks =  tracks

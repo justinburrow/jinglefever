@@ -1,4 +1,5 @@
 'use strict'
 
 angular.module 'jinglefever'
-.controller 'homeCtrl', ($scope) ->
+.controller 'homeCtrl', ($rootScope) ->
+  $rootScope.home = true
